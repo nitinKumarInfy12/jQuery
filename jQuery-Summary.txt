@@ -1,0 +1,174 @@
+=================================================java script=========================================
+$(this)     // refers to the current selected item
+hide()  // sets the display property as none for the element
+Stop()  // to stop animation running on element
+Item.length;  // returns the length of the item
+setInterval(function(){}, interval)      // executes the callback function after every given interval(in milli seconds)
+=================================================================================================================================
+=====================Html shortcut=======================
+Ul#list>li*4>{Main Item $} and hit tab
+Ul#list>li*4>{Main Item $} >ul>li*2>{Sub Item $} and hit tab
+Div#someID and hit tab
+====================================================
+===========Html 5 has data attribute================
+<p data-mydata="some data here">
+$("p").data("mydata")  //returns "some data here"
+====================================================
+
+
+=============================================================jQuery====================================================
+Important Links: jQuery : https://jquery.com/
+jQuery CDN : http://code.jquery.com/
+jQuery Events : https://api.jquery.com/category/events/
+jQuery Events.data : https://api.jquery.com/event.data/
+Public APIs: https://github.com/public-apis/public-apis
+Jss/css selectors : https://www.w3schools.com/jquery/jquery_ref_selectors.asp
+===================Step to follow when using JQuery in project====================
+Step1. Include the minified version of this in the index.html from jQuery CDN site
+	Copy the whole content from the minified link and use in Index.html <head>
+	<script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	 
+	
+ 
+Step2. Create the script.js file for the project and include jQuery(function(){}) or $(function(){}) in the .js file
+Step3. Add the reference of .js file in the index.html file in <head>
+<script src="js/script.js"></script>
+
+$("…")  : it represents an item in the DOM
+
+all the following options can be passed to methods while adding, replacing elements in the DOM Using 
+Append(), prepend(), replace or likewise methods
+
+
+//can pass new element
+$("li").replaceWith("<li>replaced</li>");
+ 
+//can pass the string using function
+$("li").replaceWith(function(){
+	Return "<li>replaced</li>";
+	});
+ // can pass the tag item as $("<tag name>")
+	.append($("<a>"))
+
+// can pass the item
+varItem = $("li:first")
+$("p").replaceWith(varItem)
+
+============================== effects ==================================
+https://www.w3schools.com/jquery/jquery_ref_selectors.asp
+fadeIn(), fadeout(), fadeTo(), fadeToggle(),
+slideUp(), slideDown(), fadeToggle()
+animate({}),
+delay(),
+callBackFuntions()
+
+===== traverse dom ====
+Find("…"), Children(), parents(), parent(), siblings(), prev(), next()
+
+=====filter====
+Filter(), first(), last(), eq(), not()
+
+
+======= =================== manipulate Dom ===========================
+
+==== add elements
+Append(), appendTo(), prepend(), prependTo(), 
+after(), before(), insertAfter(), insertBefore()
+
+==== replace elements
+replaceWith(), replaceAll()
+
+==== remove elements
+Remove(), detach(), empty()
+
+====== manipulate attributes, properties of elements =====
+Attr(), prop(), val()
+
+==== manipulate css properties
+Css()    // it does not handle the  "! Important"  marks in css, for this css class selectors are needed
+
+==== manipulate css class
+addClas(), removeClass()
+
+==== manipulating data of an element
+data(), removeData()
+
+==== manipulating contents of an element
+text(), html()
+Ex:
+var firstPar = $(“p:first”);
+firstPar.html(firstPar.html() + “This is appended”);
+
+==== manipulating contents of an element
+
+
+
+======= =================== event listener ===========================
+
+Click Event : >>> click(), click(function(event){})
+
+hover Event :  >>> hover(), hover(function(event){})
+ //  ":hover in css"    // but  unlike here it fires when mouse enters as well as  mouse leaves the element
+
+Mouse enter Event  : mouseenter(function(){})
+Mouse leaveEvent  : mouseleave(function(){})
+
+hover(handlerin(), handlerOut())  : shorthand notation for hover() with mouse enter/leave events
+
+On("events", function()) : same handler for multiple events
+
+delegated evets >>> Parent-element.on("event", "target-element", function());
+
+more data to event >>  https://api.jquery.com/event.data/ >> event.data
+
+key board events : key up & key down events  >> keypress()  --EVIL,
+>> keydown()  , event.which   >> keydown(function(event){{console.log(event.which)})  // gives key code of pressed key
+
+======= ===================form event listener ===========================
+
+// for input fields
+focus Event : >>> focus(function(){})
+blur Event : >>> focus(function(){})
+
+// for selections, radio button, checkbox
+change Event : >>> change(function(){}) 
+	.is(":checked") or .prop("checked") , .add("label[for='cb']")    //>> for checkbox
+
+	find(":selected")  //>> for dropdown
+
+// handling form submit event
+Submit Event : >>> submit(function(event){}) 
+	// trim(), 
+	//event.preventDefault()  : prevents the form to submit
+
+// regular expression for password check
+password.length >= 6 && /.*[0-9].*/.test(password);
+
+======= ===================API AJAX call ===========================
+// $.load(), $.get(), $.post(), $.ajax(), $.getJSON()
+
+// $load() : loads file from the same server into the html element
+ $load() : >>> $(html-element).load("file-path-name");
+	 >>> $(html-element).load("file-path-name", function(response, status){});
+
+// $getJSON() : to get json data from API
+	// ?jsoncallback=?
+Ex:  var flickerAPI = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+  $.getJSON(API,{
+    //options
+  }).done(function(data){
+    //success
+    console.log(data);
+  }).fail(function(){
+    alert("Ajax call failed")
+  }).always(function(){
+  // always gets executed
+  });
+});
+
+$.each(data.items, function(index,value))  >> if data was array
+$.each(data.items, function(key,value))  >> if data was object
+
+Converts thae first letter to upper case
+Var name = user.name.charAt(0).toUpperCase() + user.name.slice(1);
