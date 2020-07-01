@@ -1,5 +1,5 @@
 ===================jQuery====================================
-=>put the Jquery in html body right before </body> tag
+=>put the Jquery link in html body right before </body> tag
 
 => jQuery start
 $(document).ready(function() {

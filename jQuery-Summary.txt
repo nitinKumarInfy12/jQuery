@@ -57,7 +57,7 @@ $("p").replaceWith(varItem)
 ============================== effects ==================================
 https://www.w3schools.com/jquery/jquery_ref_selectors.asp
 fadeIn(), fadeout(), fadeTo(), fadeToggle(),
-slideUp(), slideDown(), fadeToggle()
+slideUp(), slideDown(), slideToggle()
 animate({}),
 delay(),
 callBackFuntions()
